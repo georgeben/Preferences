@@ -1,17 +1,44 @@
 package com.kurobarabenjamingeorge.preferences;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private LinearLayout rootLayout;
+    private TextView heading, paragraph_one, paragraph_two, source;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        rootLayout = (LinearLayout) findViewById(R.id.layout);
+        heading = (TextView) findViewById(R.id.article_title);
+        paragraph_one = (TextView) findViewById(R.id.article_content_one);
+        paragraph_two = (TextView) findViewById(R.id.article_content_two);
+        source = (TextView) findViewById(R.id.sources);
+
+        setUpSharedPreferences();
+    }
+
+    private void setUpSharedPreferences() {
+
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if(sharedPreferences.getBoolean(getResources().getString(R.string.pref_show_text_key), getResources().getBoolean(R.bool.pref_show_text_default))){
+            rootLayout.setVisibility(View.VISIBLE);
+        }else{
+            rootLayout.setVisibility(View.INVISIBLE);
+        }
+
     }
 
     @Override

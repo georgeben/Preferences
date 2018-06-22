@@ -2,4 +2,25 @@
     <string name="app_name">Preferences</string>
 
     <string name="settings">Settings</string>
+
+    <string name="article_title">Introduction to Shared preferences</string>
+
+    <string name="article_content_one">Android provides many ways of storing data of an application.
+        One of this way is called Shared Preferences. Shared Preferences allow you to save and retrieve data in
+        the form of key,value pair. In order to use shared preferences, you have to call a method
+        getSharedPreferences() that returns a SharedPreference instance pointing to the file that contains the
+        values of preferences.</string>
+    <string name="article_content_two">Shared preferences allow you to read and write small amounts of primitive data
+        (as key/value pairs) to a file on the device storage. The SharedPreference class provides APIs for getting a handle
+        to a preference file and for reading, writing, and managing this data. The shared preferences file itself is managed by
+        the Android framework, and accessible to (shared with) all the components of your app. That data is not, however, shared with or accessible to any other apps.
+        The data you save to shared preferences is different from the data in the saved activity state you learned about in an earlier
+        chapter. The data in the activity instance state is retained across activity instances in the same user session. Shared preferences persist across
+        user sessions, even if your app is killed and restarted or if the device is rebooted.
+Use shared preferences only when you need to save a small amount data as simple key/value pairs. To manage larger amounts of persistent app data use the other methods such as SQL databases,</string>
+
+    <string name="pref_show_text_key" translatable="false">show_text</string>
+
 </resources>
+
+
