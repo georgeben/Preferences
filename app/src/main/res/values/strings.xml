@@ -20,6 +20,10 @@
 Use shared preferences only when you need to save a small amount data as simple key/value pairs. To manage larger amounts of persistent app data use the other methods such as SQL databases,</string>
 
     <string name="pref_show_text_key" translatable="false">show_text</string>
+    <string name="pref_show_title_key" translatable="false">show_title</string>
+    <string name="pref_show_p1_key" translatable="false">show_p1t</string>
+    <string name="pref_show_p2_key" translatable="false">show_p2</string>
+    <string name="pref_show_source_key" translatable="false">show_source</string>
 
 </resources>
 

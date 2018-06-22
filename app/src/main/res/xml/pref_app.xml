@@ -7,4 +7,32 @@
         android:summaryOff="Hidden"
         android:summaryOn="Shown"
         android:title="Show text" />
+
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_title_default"
+        android:key="@string/pref_show_title_key"
+        android:summaryOff="Hidden"
+        android:summaryOn="Shown"
+        android:title="Show heading" />
+
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_p1_default"
+        android:key="@string/pref_show_p1_key"
+        android:summaryOff="Hidden"
+        android:summaryOn="Shown"
+        android:title="Show paragraph one" />
+
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_p2_default"
+        android:key="@string/pref_show_p2_key"
+        android:summaryOff="Hidden"
+        android:summaryOn="Shown"
+        android:title="Show paragraph two" />
+
+    <CheckBoxPreference
+        android:defaultValue="@bool/pref_show_source_default"
+        android:key="@string/pref_show_source_key"
+        android:summaryOff="Hidden"
+        android:summaryOn="Shown"
+        android:title="Show sources" />
 </PreferenceScreen>

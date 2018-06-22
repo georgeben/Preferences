@@ -33,17 +33,26 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     private void setUpSharedPreferences() {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        showTextPref(sharedPreferences);
+        loadTextPref(sharedPreferences);
+        loadTitlePref(sharedPreferences);
 
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
     }
 
-    private void showTextPref(SharedPreferences sharedPreferences){
+    private void loadTextPref(SharedPreferences sharedPreferences){
         if(sharedPreferences.getBoolean(getResources().getString(R.string.pref_show_text_key), getResources().getBoolean(R.bool.pref_show_text_default))){
             rootLayout.setVisibility(View.VISIBLE);
         }else{
             rootLayout.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void loadTitlePref(SharedPreferences sharedPreferences){
+        if(sharedPreferences.getBoolean(getString(R.string.pref_show_title_key), getResources().getBoolean(R.bool.pref_show_title_default))){
+            heading.setVisibility(View.VISIBLE);
+        }else{
+            heading.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -66,7 +75,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
         if (s.equals(getString(R.string.pref_show_text_key))){
-            showTextPref(sharedPreferences);
+            loadTextPref(sharedPreferences);
+        }else if(s.equals(getString(R.string.pref_show_title_key))){
+            loadTitlePref(sharedPreferences);
         }
     }
 

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <bool name="pref_show_text_default">true</bool>
+    <bool name="pref_show_title_default">true</bool>
+    <bool name="pref_show_p1_default">true</bool>
+    <bool name="pref_show_p2_default">true</bool>
+    <bool name="pref_show_source_default">true</bool>
 
 </resources>
