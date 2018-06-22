@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         loadTextPref(sharedPreferences);
         loadTitlePref(sharedPreferences);
+        loadColourPref(sharedPreferences);
 
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
@@ -53,6 +54,31 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             heading.setVisibility(View.VISIBLE);
         }else{
             heading.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void setTextColour(int colour){
+        heading.setTextColor(colour);
+        paragraph_one.setTextColor(colour);
+        paragraph_two.setTextColor(colour);
+    }
+
+    private void loadColourPref(SharedPreferences sharedPreferences){
+        String colour = sharedPreferences.getString(getString(R.string.pref_colour_key), getString(R.string.pref_colour_default));
+        if(colour.equals(getString(R.string.pref_colour_red))){
+        setTextColour(getResources().getColor(R.color.red));
+
+        }else if(colour.equals(getString(R.string.pref_colour_blue))){
+            setTextColour(getResources().getColor(R.color.blue));
+
+        }else if(colour.equals(getString(R.string.pref_colour_green))){
+            setTextColour(getResources().getColor(R.color.green));
+
+        }else if(colour.equals(getString(R.string.pref_colour_black))){
+            setTextColour(getResources().getColor(R.color.black));
+
+        }else if(colour.equals(getString(R.string.pref_colour_white))){
+            setTextColour(getResources().getColor(R.color.white));
         }
     }
 
@@ -78,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             loadTextPref(sharedPreferences);
         }else if(s.equals(getString(R.string.pref_show_title_key))){
             loadTitlePref(sharedPreferences);
+        }else if(s.equals(getString(R.string.pref_colour_key))){
+            loadColourPref(sharedPreferences);
         }
     }
 

@@ -25,6 +25,17 @@ Use shared preferences only when you need to save a small amount data as simple 
     <string name="pref_show_p2_key" translatable="false">show_p2</string>
     <string name="pref_show_source_key" translatable="false">show_source</string>
 
+    <string name="pref_colour_title">Select a text colour</string>
+    <string name="pref_colour_key">colour</string>
+    <string name="pref_colour_default">black</string>
+
+    <!--Colour values -->
+    <string name="pref_colour_red">red</string>
+    <string name="pref_colour_blue">blue</string>
+    <string name="pref_colour_green">gren</string>
+    <string name="pref_colour_white">white</string>
+    <string name="pref_colour_black">black</string>
+
 </resources>
 
 

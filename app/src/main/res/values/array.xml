@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <array name="text_colour_pref_labels">
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Black</item>
+        <item>White</item>
+    </array>
+
+    <array name="text_colour_pref_values">
+        <item>@string/pref_colour_red</item>
+        <item>@string/pref_colour_blue</item>
+        <item>@string/pref_colour_green</item>
+        <item>@string/pref_colour_black</item>
+        <item>@string/pref_colour_white</item>
+    </array>
+
+</resources>
