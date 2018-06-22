@@ -22,4 +22,11 @@
         android:entries="@array/text_colour_pref_labels"
         android:entryValues="@array/text_colour_pref_values" />
 
+    <ListPreference
+        android:defaultValue="@string/pref_colour_default"
+        android:key="@string/pref_bg_colour_key"
+        android:title="@string/pref_bg_colour_title"
+        android:entries="@array/text_colour_pref_labels"
+        android:entryValues="@array/text_colour_pref_values" />
+
 </PreferenceScreen>

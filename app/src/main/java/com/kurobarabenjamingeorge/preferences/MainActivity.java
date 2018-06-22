@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         loadTextPref(sharedPreferences);
         loadTitlePref(sharedPreferences);
         loadColourPref(sharedPreferences);
+        loadBgColourPref(sharedPreferences);
 
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
@@ -82,6 +83,25 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
+    private void loadBgColourPref(SharedPreferences sharedPreferences){
+        String colour = sharedPreferences.getString(getString(R.string.pref_bg_colour_key), getString(R.string.pref_colour_default));
+        if(colour.equals(getString(R.string.pref_colour_red))){
+            rootLayout.setBackgroundColor(getResources().getColor(R.color.red));
+
+        }else if(colour.equals(getString(R.string.pref_colour_blue))){
+            rootLayout.setBackgroundColor(getResources().getColor(R.color.blue));
+
+        }else if(colour.equals(getString(R.string.pref_colour_green))){
+            rootLayout.setBackgroundColor(getResources().getColor(R.color.green));
+
+        }else if(colour.equals(getString(R.string.pref_colour_black))){
+            rootLayout.setBackgroundColor(getResources().getColor(R.color.black));
+
+        }else if(colour.equals(getString(R.string.pref_colour_white))){
+            rootLayout.setBackgroundColor(getResources().getColor(R.color.white));
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity_menu, menu);
@@ -106,6 +126,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             loadTitlePref(sharedPreferences);
         }else if(s.equals(getString(R.string.pref_colour_key))){
             loadColourPref(sharedPreferences);
+        }else if(s.equals(getString(R.string.pref_bg_colour_key))){
+            loadBgColourPref(sharedPreferences);
         }
     }
 

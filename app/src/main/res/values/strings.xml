@@ -36,6 +36,10 @@ Use shared preferences only when you need to save a small amount data as simple 
     <string name="pref_colour_white">white</string>
     <string name="pref_colour_black">black</string>
 
+    <!--Pref background colour-->
+    <string name="pref_bg_colour_title">Set a background colour</string>
+    <string name="pref_bg_colour_key">bg_colour</string>
+
 </resources>
 
 
