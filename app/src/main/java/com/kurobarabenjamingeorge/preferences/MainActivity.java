@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private LinearLayout rootLayout;
     private TextView heading, paragraph_one, paragraph_two, source;
@@ -33,12 +33,18 @@ public class MainActivity extends AppCompatActivity {
     private void setUpSharedPreferences() {
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        showTextPref(sharedPreferences);
+
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
+
+    }
+
+    private void showTextPref(SharedPreferences sharedPreferences){
         if(sharedPreferences.getBoolean(getResources().getString(R.string.pref_show_text_key), getResources().getBoolean(R.bool.pref_show_text_default))){
             rootLayout.setVisibility(View.VISIBLE);
         }else{
             rootLayout.setVisibility(View.INVISIBLE);
         }
-
     }
 
     @Override
@@ -55,5 +61,19 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+        if (s.equals(getString(R.string.pref_show_text_key))){
+            showTextPref(sharedPreferences);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .unregisterOnSharedPreferenceChangeListener(this);
     }
 }
