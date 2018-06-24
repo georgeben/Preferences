@@ -28,5 +28,8 @@
         android:title="@string/pref_bg_colour_title"
         android:entries="@array/text_colour_pref_labels"
         android:entryValues="@array/text_colour_pref_values" />
-
+    <EditTextPreference
+        android:defaultValue="1"
+        android:key="@string/text_size"
+        android:title="@string/label_size" />
 </PreferenceScreen>

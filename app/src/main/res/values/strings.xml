@@ -40,6 +40,10 @@ Use shared preferences only when you need to save a small amount data as simple 
     <string name="pref_bg_colour_title">Set a background colour</string>
     <string name="pref_bg_colour_key">bg_colour</string>
 
+    <!--Pref Text Size-->
+    <string name="text_size">text_size</string>
+    <string name="label_size">Set text size</string>
+
 </resources>
 
 

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private LinearLayout rootLayout;
     private TextView heading, paragraph_one, paragraph_two, source;
+    private final  float default_heading_size = 25;
+    private final  float default_text_size = 12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         source = (TextView) findViewById(R.id.sources);
 
         setUpSharedPreferences();
+
     }
 
     private void setUpSharedPreferences() {
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         loadTitlePref(sharedPreferences);
         loadColourPref(sharedPreferences);
         loadBgColourPref(sharedPreferences);
+        loadTextSize(sharedPreferences);
 
         sharedPreferences.registerOnSharedPreferenceChangeListener(this);
 
@@ -102,6 +107,14 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
     }
 
+    private void loadTextSize(SharedPreferences sharedPreferences){
+        float size  = default_heading_size* Float.parseFloat(sharedPreferences.getString(getString(R.string.text_size), "1"));
+        heading.setTextSize(size);
+        float text_size = default_text_size * Float.parseFloat(sharedPreferences.getString(getString(R.string.text_size), "1"));
+        Log.i("Paragraph size" , String.valueOf(text_size));
+        paragraph_two.setTextSize(text_size); paragraph_one.setTextSize(text_size);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity_menu, menu);
@@ -128,6 +141,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             loadColourPref(sharedPreferences);
         }else if(s.equals(getString(R.string.pref_bg_colour_key))){
             loadBgColourPref(sharedPreferences);
+        }else if (s.equals(getString(R.string.text_size))){
+            loadTextSize(sharedPreferences);
         }
     }
 
